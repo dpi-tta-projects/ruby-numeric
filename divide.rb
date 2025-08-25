@@ -1,6 +1,9 @@
 # divide.rb
 #
-# Read two integers (one per line). Print:
-# 1) integer division a / b
-# 2) float division a / b.to_f
-# (each on its own line, using pp)
+# Cookie math 🍪
+# Read two integers (one per line): cookies and friends.
+# Print:
+# 1) cookies / friends         (integer division: whole cookies each)
+# 2) cookies / friends.to_f    (float division: the fair-share number)
+# Use `pp` for each line.
+#
