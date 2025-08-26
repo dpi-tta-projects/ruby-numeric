@@ -1,4 +1,4 @@
-# ops.rb
+# calculator.rb
 #
 # Pocket calculator 🧮
 # Read two integers x and y (one per line).
