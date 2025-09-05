@@ -2,18 +2,22 @@
 
 require "fileutils"
 
-puts "==> Setting up project..."
+puts "== Setting up project =="
 
-begin
-  require "bundler"
-rescue LoadError
-  puts "==> Installing bundler..."
-  system("gem install bundler") || abort("Failed to install bundler")
-  require "bundler"
+APP_ROOT = File.expand_path("..", __dir__)
+
+def system!(*args)
+  system(*args, exception: true)
 end
 
-puts "==> Installing Ruby gems..."
+FileUtils.chdir APP_ROOT do
+  # This script is a way to set up or update your development environment automatically.
+  # This script is idempotent, so that you can run it at any time and get an expectable outcome.
+  # Add necessary setup steps to this file.
 
-system("bundle install") || abort("Bundle install failed")
+  puts "== Installing dependencies =="
+  system("bundle check") || system!("bundle install")
 
-puts "==> Setup complete!"
+end
+
+puts "== Setup complete! =="
