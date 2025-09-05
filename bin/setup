@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+require "fileutils"
+
+puts "==> Setting up project..."
+
+begin
+  require "bundler"
+rescue LoadError
+  puts "==> Installing bundler..."
+  system("gem install bundler") || abort("Failed to install bundler")
+  require "bundler"
+end
+
+puts "==> Installing Ruby gems..."
+
+system("bundle install") || abort("Bundle install failed")
+
+puts "==> Setup complete!"

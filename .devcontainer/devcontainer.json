@@ -1,5 +1,5 @@
 {
-  "name": "static-html-template-container",
+  "name": "grade-runner-project-template-container",
   "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
   "forwardPorts": [
     3000
@@ -10,5 +10,6 @@
         "eamodio.gitlens"
       ]
     }
-  }
+  },
+  "postCreateCommand": "bin/setup"
 }
