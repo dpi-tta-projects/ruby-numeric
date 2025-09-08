@@ -1,6 +1,6 @@
 
 RSpec.describe "pythagoras.rb" do
-  describe "program output" do
+  describe "output" do
     it "prints the hypotenuse for 2 and 2, rounded to 2 decimals" do
       stdout, stderr, status = run_script("./pythagoras.rb", stdin: "2\n2\n")
       expect(status.exitstatus).to eq(0), "Program error: #{stderr}"
@@ -19,7 +19,7 @@ RSpec.describe "pythagoras.rb" do
     end
   end
 
-  describe "source code" do
+  describe "code" do
     let(:src) { source_without_comments(File.read("pythagoras.rb")) }
 
     it "uses ** for squaring" do

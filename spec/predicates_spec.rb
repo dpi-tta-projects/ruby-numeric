@@ -1,6 +1,6 @@
 
 RSpec.describe "predicates.rb" do
-  describe "program output" do
+  describe "output" do
     it "prints correct truth values for 0" do
       stdout, stderr, status = run_script("./predicates.rb", stdin: "0\n")
       expect(status.exitstatus).to eq(0), "Trouble reading your vibes: #{stderr}"
@@ -16,7 +16,7 @@ RSpec.describe "predicates.rb" do
     end
   end
 
-  describe "source code" do
+  describe "code" do
     let(:src) { source_without_comments File.read("predicates.rb") }
 
     it "calls even? on the number" do
