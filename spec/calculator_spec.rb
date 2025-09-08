@@ -11,6 +11,10 @@ RSpec.describe "calculator.rb" do
 
   it "uses the actual operators" do
     src = File.read("calculator.rb")
+
+    # Remove prompt comments (lines starting with optional whitespace and `#`)
+    src = src.lines.reject { |line| line.strip.start_with?("#") }.join
+
     expect(src).to match(/\+/),      "Use + for addition."
     expect(src).to match(/-/),       "Use - for subtraction."
     expect(src).to match(/\*/),      "Use * for multiplication."

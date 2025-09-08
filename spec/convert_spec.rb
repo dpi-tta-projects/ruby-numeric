@@ -11,6 +11,10 @@ RSpec.describe "convert.rb" do
 
   it "calls to_i and to_f" do
     src = File.read("convert.rb")
+
+    # Remove prompt comments (lines starting with optional whitespace and `#`)
+    src = src.lines.reject { |line| line.strip.start_with?("#") }.join
+
     expect(src).to match(/\bto_i\b/), "Use String#to_i to turn '42' into 42."
     expect(src).to match(/\bto_f\b/), "Use String#to_f to turn '3.14' into 3.14."
   end

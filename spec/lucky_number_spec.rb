@@ -33,6 +33,10 @@ RSpec.describe "lucky_number.rb" do
 
   it "uses rand, %, and to_s.include?" do
     src = File.read("lucky_number.rb")
+
+    # Remove prompt comments (lines starting with optional whitespace and `#`)
+    src = src.lines.reject { |line| line.strip.start_with?("#") }.join
+
     expect(src).to match(/rand/), "Use rand(1..100) to generate the number."
     expect(src).to match(/%/), "Use % for divisibility check."
     expect(src).to match(/to_s\.include\?\(["']7["']\)/),

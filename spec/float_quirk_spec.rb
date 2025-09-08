@@ -12,6 +12,10 @@ RSpec.describe "float_quirk.rb" do
 
   it "adds the numeric literals 0.1 and 0.2" do
     src = File.read("float_quirk.rb")
+
+    # Remove prompt comments (lines starting with optional whitespace and `#`)
+    src = src.lines.reject { |line| line.strip.start_with?("#") }.join
+
     expect(src).to match(/\b0\.1\b/), "Use the literal 0.1."
     expect(src).to match(/\b0\.2\b/), "Use the literal 0.2."
     expect(src).to match(/\+\s*/),    "Use + to add them."

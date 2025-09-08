@@ -16,6 +16,10 @@ RSpec.describe "methods.rb" do
 
   it "uses abs, next, gcd, and rand(10)" do
     src = File.read("methods.rb")
+
+    # Remove prompt comments (lines starting with optional whitespace and `#`)
+    src = src.lines.reject { |line| line.strip.start_with?("#") }.join
+
     expect(src).to match(/\babs\b/),        "Call n.abs."
     expect(src).to match(/\bnext\b/),       "Call n.next."
     expect(src).to match(/\bgcd\s*\(/),     "Call 10.gcd(n)."

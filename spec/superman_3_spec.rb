@@ -14,6 +14,10 @@ RSpec.describe "superman_3.rb" do
 
   it "uses * and round(2)" do
     src = File.read("superman_3.rb")
+
+    # Remove prompt comments (lines starting with optional whitespace and `#`)
+    src = src.lines.reject { |line| line.strip.start_with?("#") }.join
+
     expect(src).to match(/\*/), "Use * to compute 10%."
     expect(src).to match(/\.round\(\s*2\s*\)/), "Use .round(2) to round to 2 decimals."
   end
