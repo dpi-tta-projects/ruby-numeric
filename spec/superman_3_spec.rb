@@ -1,6 +1,6 @@
 
 RSpec.describe "superman_3.rb" do
-  describe "program output" do
+  describe "output" do
     it "prints the raw float (10% of input) and the rounded value" do
       stdout, stderr, status = run_script("./superman_3.rb", stdin: "1234.56\n")
       expect(status.exitstatus).to eq(0), "Program error: #{stderr}"
@@ -14,7 +14,7 @@ RSpec.describe "superman_3.rb" do
     end
   end
 
-  describe "source code" do
+  describe "code" do
     let(:src) { source_without_comments(File.read("superman_3.rb")) }
 
     it "uses * to compute 10 percent" do
