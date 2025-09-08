@@ -1,5 +1,3 @@
-# spec/numbers_class_spec.rb
-require "spec_helper"
 
 RSpec.describe "numbers_class.rb" do
   it "prints the class of an integer and a float" do

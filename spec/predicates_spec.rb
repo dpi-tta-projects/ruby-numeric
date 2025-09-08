@@ -1,5 +1,3 @@
-# spec/predicates_spec.rb
-require "spec_helper"
 
 RSpec.describe "predicates.rb" do
   describe "program output" do

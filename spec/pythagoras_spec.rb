@@ -1,5 +1,3 @@
-# spec/pythagoras_spec.rb
-require "spec_helper"
 
 RSpec.describe "pythagoras.rb" do
   describe "program output" do

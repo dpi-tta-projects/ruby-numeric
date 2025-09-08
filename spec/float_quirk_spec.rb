@@ -1,4 +1,3 @@
-require 'spec_helper'
 
 RSpec.describe "float_quirk.rb" do
   it "prints 0.1 + 0.2 (floaty business)" do

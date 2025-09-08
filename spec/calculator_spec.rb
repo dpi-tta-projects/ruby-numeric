@@ -1,4 +1,3 @@
-require 'spec_helper'
 
 RSpec.describe "calculator.rb" do
   it "prints results in order (+, -, *, /, %, **)" do

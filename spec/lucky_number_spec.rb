@@ -1,5 +1,3 @@
-# spec/lucky_number_spec.rb
-require "spec_helper"
 
 RSpec.describe "lucky_number.rb" do
   it "generates a number between 1 and 100" do

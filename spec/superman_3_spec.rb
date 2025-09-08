@@ -1,5 +1,3 @@
-# spec/superman_3_spec.rb
-require "spec_helper"
 
 RSpec.describe "superman_3.rb" do
   describe "program output" do

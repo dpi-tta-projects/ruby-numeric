@@ -1,4 +1,3 @@
-require 'spec_helper'
 
 RSpec.describe "divide.rb" do
   it "prints integer division then float division" do
