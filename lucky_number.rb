@@ -4,7 +4,7 @@
 # Generate a random integer from 1 to 100 (inclusive).
 # Print the number with `pp`.
 # Then print, with `pp`:
-#   - "lucky"   if the number is divisible by 7 OR its decimal form contains the digit 7
+#   - "lucky"   if the number is divisible by 7 OR it contains the digit 7 (eg 17, 71, 47, etc.)
 #   - "unlucky" otherwise
 #
 # Example outputs:
