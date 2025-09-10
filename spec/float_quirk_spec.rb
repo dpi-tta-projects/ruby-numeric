@@ -2,23 +2,21 @@
 RSpec.describe "float_quirk.rb" do
   describe "output" do
     it "prints 0.1 + 0.2 (floaty business)" do
-      stdout, stderr, status = run_script("float_quirk.rb")
-      expect(status.exitstatus).to eq(0), "Runtime error: #{stderr}"
+      output = run_script_and_capture_lines("float_quirk.rb")
 
-      out = stdout.strip
-      f = Float(out) rescue nil
-      expect(f).not_to be_nil, "Please print a number (use pp)."
-      expect(f).to be_within(1e-12).of(0.3), "It should be very close to 0.3 (but not always exactly)."
+      output_as_float = Float(output[0]) rescue nil
+      expect(output_as_float).not_to be_nil, "Please print a number (use pp)."
+      expect(output_as_float).to be_within(1e-12).of(0.3), "It should be very close to 0.3 (but not always exactly)."
     end
   end
 
   describe "code" do
     it "adds the numeric literals 0.1 and 0.2" do
-      clean_src = source_without_comments(File.read("float_quirk.rb"))
+      source_code = strip_comments(File.read("float_quirk.rb"))
 
-      expect(clean_src).to match(/\b0\.1\b/), "Use the literal 0.1."
-      expect(clean_src).to match(/\b0\.2\b/), "Use the literal 0.2."
-      expect(clean_src).to match(/\+\s*/),    "Use + to add them."
+      expect(source_code).to match(/\b0\.1\b/), "Use the literal 0.1."
+      expect(source_code).to match(/\b0\.2\b/), "Use the literal 0.2."
+      expect(source_code).to match(/\+\s*/),    "Use + to add them."
     end
   end
 end

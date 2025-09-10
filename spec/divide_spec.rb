@@ -2,21 +2,18 @@
 RSpec.describe "divide.rb" do
   describe "output" do
     it "prints integer division then float division" do
-      stdout, stderr, status = run_script("divide.rb", stdin: "5\n2\n")
-      expect(status.exitstatus).to eq(0), "Non-zero exit: #{stderr}"
+      output = run_script_and_capture_lines("divide.rb", stdin: "5\n2\n")
 
-      lines = normalize_output(stdout)
-
-      expect(lines[0]).to eq("2"),   "Integer division 5/2 should be 2."
-      expect(lines[1]).to eq("2.5"), "Float division 5/2.0 should be 2.5."
+      expect(output[0]).to eq("2"),   "Integer division 5/2 should be 2."
+      expect(output[1]).to eq("2.5"), "Float division 5/2.0 should be 2.5."
     end
   end
 
   describe "code" do
     it "uses to_f (or b.to_f) for float division" do
-      clean_src = source_without_comments(File.read("divide.rb"))
+      source_code = strip_comments(File.read("divide.rb"))
 
-      expect(clean_src).to match(%r{/\s*\w+\.to_f\b}), "Use .to_f on the denominator for float division."
+      expect(source_code).to match(%r{/\s*\w+\.to_f\b}), "Use .to_f on the denominator for float division."
     end
   end
 end

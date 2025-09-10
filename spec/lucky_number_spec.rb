@@ -3,8 +3,8 @@ RSpec.describe "lucky_number.rb" do
 
   describe "output" do
     it "generates a number between 1 and 100" do
-      lines = run_lucky_number
-      lucky_number = Integer(lines.first)
+      output = run_lucky_number
+      lucky_number = Integer(output.first)
       expect(lucky_number).to be_between(1, 100)
     end
 
@@ -24,7 +24,6 @@ end
 
 def run_lucky_number(rand_value: nil)
   allow_any_instance_of(Object).to receive(:rand).and_return(rand_value) if rand_value
-  stdout, stderr, status = run_script("lucky_number.rb")
 
-  normalize_output(stdout)
+  run_script_and_capture_lines("lucky_number.rb")
 end
